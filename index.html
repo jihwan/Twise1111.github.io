@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./assets/js/vendor/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+SIZE 
+<br>
+<input type="text" id="size" />
+<button id="go"> hanoi example </button>
+<p id="p"></p>
+
+  
+</body>
+
+<script>
+  function hn(n, f, t) {
+      if (1 == n) {
+        $("p").append(f + "->" + t + "<br>");
+      } else {
+        var m = 6 - f - t;
+        hn(n - 1, f, m);
+        hn(1, f, t);
+        hn(n - 1, m, t);
+      }
+    }
+
+    $("#go").click(() => {
+      $("p").text(null);
+      var n = $("#size").val();
+      hn(n, 1, 3);
+    });
+</script>
+</html>
